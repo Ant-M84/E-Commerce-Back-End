@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 // get one product
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 // create new product
@@ -138,7 +138,7 @@ router.delete('/:id', async (req, res) => {
   })
   .then(productData => {
     if (!productData) {
-      res.status(404).json({ message: 'No Product located with that ID!'});
+      res.status(404).json({ message: 'No Product located matching provided ID!'});
       return;
     }
     res.json(productData);

@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   .catch((err) => {
     console.log(err);
     res.status(500).json(err);
-  })
+  });
 });
 
 router.get('/:id', async (req, res) => {
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
   .catch((err) => {
     console.log(err);
     res.status(500).json(err);
-  })
+  });
 });
 
 router.post('/', async (req, res) => {
@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 router.put('/:id', async (req, res) => {
@@ -63,7 +63,7 @@ router.put('/:id', async (req, res) => {
   })
   .then(categoryData => {
     if (!categoryData) {
-      res.status(404).json({ message: 'No Category located with that ID!'});
+      res.status(404).json({ message: 'No Category located matching provided ID!'});
       return;
     }
     res.json(categoryData);
@@ -71,7 +71,7 @@ router.put('/:id', async (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 router.delete('/:id', async (req, res) => {
@@ -83,7 +83,7 @@ router.delete('/:id', async (req, res) => {
   })
     .then(categoryData => {
       if (!categoryData) {
-        res.status(404).json({ message: 'No Category located with that ID!'});
+        res.status(404).json({ message: 'No Category located matching provided ID!'});
         return;
       }
       res.json(categoryData);
@@ -91,7 +91,7 @@ router.delete('/:id', async (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
 
 module.exports = router;
